@@ -111,7 +111,7 @@ DROP TABLE IF EXISTS characters;
 -- Create new tables, according to your domain model
 CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT,
+  title TEXT,
   year INTEGER,
   mpaa_rating TEXT,
   studio TEXT
@@ -132,7 +132,7 @@ CREATE TABLE characters (
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 INSERT INTO movies (
-  name,
+  title,
   year,
   mpaa_rating,
   studio
@@ -195,7 +195,7 @@ VALUES
 ("Commissioner Gordon", 3, 5),
 ("Bane", 3, 9),
 ("John Blake", 3, 10),
-("Seline Kyle", 3, 11),
+("Seline Kyle", 3, 11)
 ;
 
 
@@ -205,7 +205,7 @@ VALUES
 .print ""
 
 -- The SQL statement for the movies output
-SELECT name, year, mpaa_rating, studio
+SELECT title, year, mpaa_rating, studio
 FROM movies
 ;
 
@@ -217,7 +217,7 @@ FROM movies
 
 
 -- The SQL statement for the cast output
-SELECT movies.name, actors.name, characters.name
+SELECT movies.title, actors.name, characters.name
 FROM characters 
 INNER JOIN movies ON characters.movie_id = movies.id
 INNER JOIN actors ON characters.actor_id = actors.id

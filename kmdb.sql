@@ -125,8 +125,8 @@ CREATE TABLE actors (
 CREATE TABLE characters (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
-  movie_id,
-  actor_id
+  movie_id INTEGER,
+  actor_id INTEGER
 );
 
 -- Insert data into your database that reflects the sample data shown above
@@ -156,13 +156,58 @@ VALUES (
     "Warner Bros."
 );
 
+INSERT INTO actors (
+name
+)
+
+VALUES 
+("Christian Bale"),
+("Michael Caine"),
+("Liam Neeson"),
+("Katie Holmes"),
+("Gary Oldman"),
+("Heath Ledger"),
+("Aaron Eckhart"),
+("Maggie Gyllenhaal"),
+("Tom Hardy"),
+("Joseph Gordon-Levitt"),
+("Anne Hathaway")
+;
+
+INSERT INTO characters (
+  name,
+  movie_id,
+  actor_id
+)
+
+VALUES 
+("Bruce Wayne", 1, 1),
+("Alfred", 1, 2),
+("Ra's Al Ghul", 1, 3),
+("Rachel Dawes", 1, 4),
+("Commissioner Gordon", 1, 5),
+("Bruce Wayne", 2, 1),
+("Joker", 2, 6),
+("Harvey Dent", 2, 7),
+("Alfred", 2, 2),
+("Rachel Dawes", 2, 4),
+("Bruce Wayne", 3, 1),
+("Commissioner Gordon", 3, 5),
+("Bane", 3, 9),
+("John Blake", 3, 10),
+("Seline Kyle", 3, 11),
+;
+
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+SELECT name, year, mpaa_rating, studio
+FROM movies
+;
 
 -- Prints a header for the cast output
 .print ""
@@ -172,4 +217,6 @@ VALUES (
 
 
 -- The SQL statement for the cast output
--- TODO!
+SELECT movies.name, characters.name,
+FROM characters INNER JOIN movies ON characters.movie_id = movies.id
+;

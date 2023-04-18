@@ -217,6 +217,8 @@ FROM movies
 
 
 -- The SQL statement for the cast output
-SELECT movies.name, characters.name,
-FROM characters INNER JOIN movies ON characters.movie_id = movies.id
+SELECT movies.name, actors.name, characters.name
+FROM characters 
+INNER JOIN movies ON characters.movie_id = movies.id
+INNER JOIN actors ON characters.actor_id = actors.id
 ;

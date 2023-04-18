@@ -113,20 +113,18 @@ CREATE TABLE movies (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   year INTEGER,
-  mpaa_rating INTEGER,
+  mpaa_rating TEXT,
   studio TEXT
 );
 
 CREATE TABLE actors (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name TEXT,
-  last_name TEXT
+  name TEXT
 );
 
 CREATE TABLE characters (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name TEXT,
-  last_name TEXT,
+  name TEXT,
   movie_id,
   actor_id
 );
